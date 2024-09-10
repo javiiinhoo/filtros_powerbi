@@ -2,17 +2,13 @@ import streamlit as st
 import pandas as pd
 
 # Cargar el archivo Excel
-
-
 @st.cache_data
 def load_data():
     return pd.read_excel("dataset_for_streamlit.xlsx")
 
-
 # Cargar los datos
 df = load_data()
 posiciones_disponibles = df['POSICION_POWERBI'].dropna().unique()
-posicion = st.selectbox('Selecciona la posición', posiciones_disponibles)
 posicion = st.selectbox('Selecciona la posición', posiciones_disponibles)
 
 # Asegura que no haya valores nulos
